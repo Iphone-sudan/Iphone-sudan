@@ -75,7 +75,7 @@ nav b{font-weight:800;white-space:nowrap}
 #nuc ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;list-style:none;padding:0;margin-top:14px}
 #nuc li{padding:10px 14px;border-radius:14px;background:var(--bg);font-size:14px}
 #nuc li::before{content:"✓ ";color:var(--a)}
-.hs{display:flex;gap:14px;overflow-x:auto;padding:6px 0 18px;scroll-snap-type:x mandatory}
+.hs{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;max-width:100%;padding:6px 0 18px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
 .of{min-width:270px;scroll-snap-align:start;padding:26px;border-radius:28px;background:var(--lime);display:flex;flex-direction:column;gap:12px}
 .of b{font-size:46px;line-height:1}
 .lab{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -126,7 +126,6 @@ footer h2{color:#fff}footer a{color:#cfd3ff}.fg{display:grid;grid-template-colum
 .pod{position:absolute;bottom:110px;width:26px;height:58px;border-radius:13px 13px 8px 8px;background:#fff;box-shadow:0 6px 12px -6px rgba(0,0,0,.4);transform:translateY(40px);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
 .go .pod{transform:none}
 .ac{position:absolute;padding:8px 14px;border-radius:99px;background:#fff;font-size:13px;box-shadow:0 10px 30px -12px rgba(20,22,40,.3);will-change:translate}
-.sk{min-width:210px;height:320px;scroll-snap-align:start;border-radius:28px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;color:inherit;text-decoration:none;font-weight:700;font-size:20px;gap:4px}
 #se{position:fixed;inset:0;z-index:95;background:rgba(246,244,239,.97);backdrop-filter:blur(24px);padding:calc(env(safe-area-inset-top,0px) + 24px) 6vw;visibility:hidden;opacity:0;transform:scale(1.03);filter:blur(8px);transition:.45s cubic-bezier(.2,.8,.2,1);overflow-y:auto}
 #se.on{visibility:visible;opacity:1;transform:none;filter:none}
 #si{font-size:clamp(28px,6vw,56px);border:0;border-bottom:2px solid var(--ink);border-radius:0;background:transparent;padding:10px 0;margin-top:30px}
@@ -193,14 +192,18 @@ nav.h{transform:translateX(-50%) translateY(-160%)}
 .sf{width:100%;border-radius:32px;display:block;aspect-ratio:4/3;object-fit:cover}
 .vd{min-width:220px;max-width:240px;scroll-snap-align:start;border-radius:28px;overflow:hidden;position:relative;background:#111;aspect-ratio:9/16}
 .vd video{width:100%;height:100%;object-fit:cover;display:block}
+.vd .mt{position:absolute;top:10px;inset-inline-end:10px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:16px;line-height:1;display:grid;place-items:center;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.vd.sa{cursor:pointer}
+.sndv{margin:28px auto 0;max-width:340px;border-radius:28px;overflow:hidden;background:#111;box-shadow:inset 0 0 0 1px var(--ln)}
+.sndv.w{max-width:760px;margin-top:20px}
+.sndv video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#111;object-fit:contain}
+.sndv.w video{aspect-ratio:16/9}
+.sndv .sdc{margin:0;padding:12px 18px;background:#fff;font-size:13px;color:var(--mut)}
 .vd span{position:absolute;inset:auto 0 0 0;padding:34px 16px 14px;color:#fff;font-size:14px;background:linear-gradient(transparent,rgba(0,0,0,.65))}
 .mg2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .mgc{border-radius:30px;background:#fff;overflow:hidden;box-shadow:inset 0 0 0 1px var(--ln)}
 .mgc img{width:100%;aspect-ratio:1/1.1;object-fit:cover;object-position:50% 20%;display:block}
 .mgc div{padding:14px 18px 18px}
-.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:18px 0}
-.slot{aspect-ratio:4/5;border-radius:26px;border:2px dashed var(--ln);display:grid;place-items:center;text-align:center;padding:18px;color:var(--mut);font-size:13px}
-.slot img{width:100%;height:100%;object-fit:cover;border-radius:24px}
 .pg{display:none}.pg.on{display:block}
 .ls a.on,#mn a.on{opacity:1;text-decoration:underline;text-underline-offset:7px}
 .gt{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
@@ -232,7 +235,7 @@ nav.h{transform:translateX(-50%) translateY(-160%)}
 #wp{margin-top:6px}
 .ch{font-size:clamp(30px,5vw,48px);font-weight:800;letter-spacing:-.02em;color:var(--a)}
 .sr{font-size:20px;font-weight:700;margin:28px 0 4px}
-.mr{gap:12px}
+.mr{gap:12px;scroll-snap-type:none}
 .mk{flex:none;width:158px;scroll-snap-align:start;border-radius:28px;background:#fff;box-shadow:inset 0 0 0 1px var(--ln);padding:12px 12px 16px;text-align:start;display:flex;flex-direction:column;gap:4px;transition:transform .3s}
 .mk:active{transform:scale(.97)}
 .mi{display:grid;place-items:center;height:170px;overflow:hidden;border-radius:20px;background:linear-gradient(160deg,color-mix(in srgb,var(--a) 10%,#fff),#fff)}
@@ -271,7 +274,7 @@ body:has(#pop.on) .fb,body:has(#pop.on) .isb,body:has(#pop.on) .tip{display:none
 <section id="offers"><h2 class="rv" data-a="عروض دمار.">Flash offers.</h2><p class="s" data-a="عروض لفترة محدودة، تأكد من سريانها عبر واتساب.">Limited-time deals — confirm they're still running on WhatsApp.</p><div class="hs" id="hs"></div></section></div>
 <div class="pg" id="pg-fix"><section id="repair"><h2 class="rv" data-a="جهازك محتاج صيانة؟">Needs a repair?</h2><p class="s" data-a="خليه في يد ناس فاهمين.">Leave it with people who understand.</p>
 <div class="lab"><div class="diag"><div class="bar"><span>Diagnostics</span><i></i></div><div class="bar"><span>Battery</span><i style="animation-delay:-.5s"></i></div><div class="bar"><span>Screen</span><i style="animation-delay:-1s"></i></div><div class="bar"><span>Camera</span><i style="animation-delay:-1.5s"></i></div><div class="bar"><span>Charging</span><i style="animation-delay:-2s"></i></div><div class="bar"><span>Software</span><i style="animation-delay:-2.5s"></i></div></div>
-<div><div class="svc" id="svc"></div><form id="rf"><select id="rd"></select><select id="ri"></select><input id="rn" required data-pa="الاسم" placeholder="Name"><input id="rp" required inputmode="tel" data-pa="رقم الواتساب" placeholder="WhatsApp number"><input id="rt" data-pa="الوقت المناسب" placeholder="Preferred time"><button class="btn" data-a="احجز الآن">Book now</button></form></div></div></section>
+<div><div class="svc" id="svc"></div><form id="rf"><select id="rd"></select><select id="ri"></select><input id="rn" required data-pa="الاسم" placeholder="Name"><input id="rp" required inputmode="tel" data-pa="رقم الواتساب" placeholder="WhatsApp number"><input id="rt" data-pa="الوقت المناسب" placeholder="Preferred time"><button class="btn" data-a="احجز الآن">Book now</button></form></div></div><div class="sndv"><p class="sdc" data-a="شوف شغل الصيانة عندنا — اضغط تشغيل عشان تسمع الصوت">See our repair work — tap play for sound</p><video controls playsinline preload="none" poster="vid/insta-1.jpg" src="vid/insta-1.mp4"></video></div></section>
 <section id="biz"><h2 class="rv" data-a="التقنية للشركات كمان.">Tech for business, too.</h2><p class="s" data-a="أساطيل آيفون، ماك بوك، آيباد، إكسسوارات وطلبات بالجملة.">iPhone fleets, MacBooks, iPads, accessories and bulk orders.</p>
 <form id="bf" style="max-width:520px"><input id="bc" required data-pa="اسم الشركة" placeholder="Company"><input id="bq" required inputmode="numeric" data-pa="عدد الأجهزة" placeholder="Number of devices"><select id="bt"></select><button class="btn" data-a="حلول للشركات">Request a business quote</button></form></section></div>
 <div class="pg" id="pg-about"><section id="story"><h2 class="rv" data-a="من السودان إلى القاهرة.">From Sudan to Cairo.</h2><p class="s" data-a="رحلة بدأت في الخرطوم ووصلت شارع السودان في الدقي.">A journey that began in Khartoum and landed on Sudan Street in Dokki.</p>
@@ -280,9 +283,7 @@ body:has(#pop.on) .fb,body:has(#pop.on) .isb,body:has(#pop.on) .tip{display:none
 <div class="hs" style="margin-top:14px"><div class="vd"><video muted loop playsinline preload="none" poster="vid/omdurman.jpg" data-src="vid/omdurman.mp4"></video><span data-a="أم درمان — شرق استوب">Omdurman — East Istop</span></div><div class="vd"><video muted loop playsinline preload="none" poster="vid/heart-of-omdurman.jpg" data-src="vid/heart-of-omdurman.mp4"></video><span data-a="من السودان، من قلب أم درمان">From Sudan, from the heart of Omdurman</span></div><div class="vd"><video muted loop playsinline preload="none" poster="vid/coming-soon.jpg" data-src="vid/coming-soon.mp4"></video><span data-a="فرع الدقي">Dokki branch</span></div></div>
 <div class="mg2"><div class="mgc"><img src="img/store/manager-1.webp" alt="Store manager" loading="lazy"><div><b data-a="مدير المحل">Store manager</b></div></div><div class="mgc"><img src="img/store/manager-2.webp" alt="Store manager" loading="lazy"><div><b data-a="مدير المحل">Store manager</b></div></div></div></section>
 <section id="social"><h2 class="rv" data-a="شوفنا في الواقع.">See us in real life.</h2><p class="s" data-a="فيديوهات، وصول جديد، عروض وشغل الصيانة — على إنستغرام وتيك توك.">Videos, new arrivals, offers and repair work — on Instagram and TikTok.</p>
-<div class="hs"><a class="sk" target="_blank" href="https://instagram.com/iphone.sudan" style="background:linear-gradient(160deg,#dfe6ff,#fff)"><span data-a="فيديوهات المنتجات">Product videos</span><small style="font-weight:300;font-size:12px">Instagram</small></a><a class="sk" target="_blank" href="https://instagram.com/iphone.sudan" style="background:linear-gradient(160deg,#f3ffd0,#fff)"><span data-a="وصل جديد">New arrivals</span><small style="font-weight:300;font-size:12px">Instagram</small></a><a class="sk" target="_blank" href="https://instagram.com/iphone.sudan" style="background:linear-gradient(160deg,#ffe3d9,#fff)"><span data-a="العروض">Offers</span><small style="font-weight:300;font-size:12px">Instagram</small></a><a class="sk" target="_blank" href="https://tiktok.com/@iphonealsudan" style="background:linear-gradient(160deg,#e9e0ff,#fff)"><span data-a="شغل الصيانة">Repair work</span><small style="font-weight:300;font-size:12px">TikTok</small></a><a class="sk" target="_blank" href="https://tiktok.com/@iphonealsudan" style="background:linear-gradient(160deg,#d7f5fb,#fff)"><span data-a="لحظات العملاء">Customer moments</span><small style="font-weight:300;font-size:12px">TikTok</small></a></div>
-<!-- SOCIAL POSTS: replace each .slot with <a class="slot" href="POST_URL"><img src="img/social/post-1.webp" alt=""></a> -->
-<div class="sg" id="sg"><div class="slot" data-a="مكان بوست إنستغرام">Instagram post goes here</div><div class="slot" data-a="مكان بوست إنستغرام">Instagram post goes here</div><div class="slot" data-a="مكان بوست تيك توك">TikTok post goes here</div></div>
+<div class="hs" style="margin:18px 0"><div class="vd sa"><video muted loop playsinline preload="none" poster="vid/insta-1.jpg" data-src="vid/insta-1.mp4"></video><button class="mt" type="button" aria-label="Sound">🔇</button><span data-a="إنستغرام">Instagram</span></div><div class="vd sa"><video muted loop playsinline preload="none" poster="vid/insta-2.jpg" data-src="vid/insta-2.mp4"></video><button class="mt" type="button" aria-label="Sound">🔇</button><span data-a="إنستغرام">Instagram</span></div><div class="vd"><video muted loop playsinline preload="none" poster="vid/tiktok-1.jpg" data-src="vid/tiktok-1.mp4"></video><span data-a="تيك توك">TikTok</span></div></div>
 <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" target="_blank" href="https://instagram.com/iphone.sudan"><svg class="so"><use href="#ig"/></svg><span data-a="تابعنا على إنستغرام">Follow on Instagram</span></a><a class="btn g" target="_blank" href="https://tiktok.com/@iphonealsudan"><svg class="so"><use href="#tt"/></svg><span data-a="تابعنا على تيك توك">Follow on TikTok</span></a></div></section>
 <section id="visit"><h2 class="rv" data-a="تعال شوفها بنفسك.">Come see it yourself.</h2><div class="fl" id="bs"></div><div class="bi" id="bi"></div><div id="mp"></div></section></div>
 <footer><div><h2 data-a="جاهز تختار جهازك؟">Ready to choose your device?</h2><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" style="background:#fff;color:#15161b" href="#world" data-a="استكشف المنتجات">Explore products</a><button class="btn g" onclick="wa('Hi Iphone Sudan!','السلام عليكم!')" data-a="كلمنا على واتساب">Chat on WhatsApp</button></div>
@@ -334,11 +335,13 @@ const askP=i=>{const x=P[i],n=(x.n+' '+x.s+' '+(x.c?(x.c=='new'?L('New','جدي�
 const DI={iphone:'ip/iphone-15-pro-natural-titanium',mac:'dev/mac',watch:'dev/watch1',airpods:'dev/airpods2',acc:'dev/acc1'},PI={'iPad':'dev/ipad','Cases':'dev/acc1','Chargers':'dev/acc3','Cables':'dev/acc2','iPhone 13':'ip/iphone-13-blue','iPhone 15':'ip/iphone-15-blue','iPhone 15 Pro':'ip/iphone-15-pro-natural-titanium'};
 const imgFor=x=>{const u=x.k=='iphone'?phoneImg(x.n,x.col):(PI[x.n]||DI[x.k]);return u?`<img class="ci" src="img/${u}.webp" alt="${x.n}" loading="lazy" decoding="async">`:'<i class="mp" style="width:130px;height:90px"></i>'};
 let wi=0;
+const sio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)e.target.pause()}));
+const accVid=()=>`<div class="sndv w"><p class="sdc">${L('Accessories in action — tap play for sound','الإكسسوارات عن قرب — اضغط تشغيل عشان تسمع الصوت')}</p><video controls playsinline preload="none" poster="vid/accessories.jpg" src="vid/accessories.mp4"></video></div>`;
 const mcard=mi=>{const [m,cs]=IP[mi],l=PR[m],p=l?Math.min(...l.map(x=>x.p)):0;return `<button class="mk" onclick="openPop(${mi},0)"><span class="mi"><img class="${cs[0][4]?'wb':''}" src="img/ip/${cs[0][1]}.webp" alt="" loading="lazy"></span><b>${m}</b></button>`};
 function shopBody(k){
 if(k=='iphone'){const g={};IP.forEach(([m],mi)=>{const n=(m.match(/\d+/)||['0'])[0];(g[n]=g[n]||[]).push(mi)});return Object.keys(g).sort((a,b)=>b-a).map(n=>`<h4 class="sr">iPhone ${n}</h4><div class="hs mr">${g[n].map(mcard).join('')}</div>`).join('')}
-return (k=='acc'?'<img class="accp" src="img/dev/accessories.webp" alt="">':'')+'<div class="gt2">'+P.filter(x=>x.k==k).map(x=>`<article class="card"><div class="vis">${imgFor(x)}</div><h3>${x.n}</h3><button class="btn mg" onclick="askP(${P.indexOf(x)})">${L('Get price on WhatsApp','اعرف السعر على واتساب')}</button></article>`).join('')+'</div>'}
-function tabs(){const T=$('#tabs');T.innerHTML='';W.forEach((w,i)=>{const b=document.createElement('button');b.className='pill'+(i==wi?' on':'');b.textContent=L(w[0],w[1]);b.onclick=()=>{if(w[5]=='repair'){location.hash='#/fix';return}wi=i;tabs()};T.append(b)});const w=W[wi];$('#world').style.setProperty('--a',w[4]);$('#wp').innerHTML=`<h3 class="ch">${L(w[0],w[1])}</h3><p class="s">${L(w[2],w[3])}</p>`+shopBody(w[5])}
+return (k=='acc'?'<img class="accp" src="img/dev/accessories.webp" alt="">'+accVid():'')+'<div class="gt2">'+P.filter(x=>x.k==k).map(x=>`<article class="card"><div class="vis">${imgFor(x)}</div><h3>${x.n}</h3><button class="btn mg" onclick="askP(${P.indexOf(x)})">${L('Get price on WhatsApp','اعرف السعر على واتساب')}</button></article>`).join('')+'</div>'}
+function tabs(){const T=$('#tabs');T.innerHTML='';W.forEach((w,i)=>{const b=document.createElement('button');b.className='pill'+(i==wi?' on':'');b.textContent=L(w[0],w[1]);b.onclick=()=>{if(w[5]=='repair'){location.hash='#/fix';return}wi=i;tabs()};T.append(b)});const w=W[wi];$('#world').style.setProperty('--a',w[4]);$('#wp').innerHTML=`<h3 class="ch">${L(w[0],w[1])}</h3><p class="s">${L(w[2],w[3])}</p>`+shopBody(w[5]);$$('#wp .sndv video').forEach(v=>sio.observe(v))}
 function openPop(mi,ci){pick(mi,ci||0);$('#pop').classList.add('on');document.body.style.overflow='hidden'}
 function closePop(){$('#pop').classList.remove('on');document.body.style.overflow=''}
 $('#px').onclick=closePop;$('#pop').addEventListener('click',e=>{if(e.target.id=='pop')closePop()});addEventListener('keydown',e=>e.key=='Escape'&&closePop());addEventListener('hashchange',closePop);
@@ -425,6 +428,10 @@ addEventListener('keydown',e=>{if(e.key=='Escape'){closeS();closeAI()}});
 render();
 /* pages */
 const PG={home:['top','wall','go'],shop:['world','nu','offers'],fix:['repair','biz'],about:['story','store','social','visit']},SP={};Object.entries(PG).forEach(([p,a])=>a.forEach(i=>SP[i]=p));
+$$('#repair .sndv video').forEach(v=>sio.observe(v));
+document.addEventListener('play',e=>{const t=e.target;if(t.closest&&t.closest('.sndv'))$$('.sndv video').forEach(v=>{if(v!==t)v.pause()})},true);
+addEventListener('hashchange',()=>$$('.sndv video').forEach(v=>v.pause()));
+$$('#social .vd.sa').forEach(d=>{const v=d.querySelector('video'),b=d.querySelector('.mt');d.onclick=()=>{const was=v.muted;$$('#social .vd.sa').forEach(o=>{o.querySelector('video').muted=true;o.querySelector('.mt').textContent='🔇'});if(!was)return;v.muted=false;b.textContent='🔊';v.play().catch(()=>{})}});
 history.scrollRestoration='manual';
 function route(h){h=(h||location.hash||'#/home').replace('#','');let pg=h.startsWith('/')?h.slice(1):SP[h],sec=h.startsWith('/')?null:h;if(!PG[pg]){pg='home';sec=null}
 $$('.pg').forEach(e=>e.classList.toggle('on',e.id=='pg-'+pg));$$('#ls a,#mn a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#/'+pg));menu(0);closeS();
